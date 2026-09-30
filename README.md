@@ -1,4 +1,4 @@
-# 🎵 Spotify 歌单智能重排器 (Spotify Playlist Auto Sorter)
+# 🎵 Spotify 歌单智能排序 (Spotify Playlist Auto Sorter)
 
 [![GitHub Repo](https://img.shields.io/badge/GitHub-csxo%2Fspotify--playlist--sorter-181717.svg?logo=github)](https://github.com/csxo/spotify-playlist-sorter)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
@@ -16,7 +16,7 @@
 
 ## 📑 目录
 
-- [🎵 Spotify 歌单智能重排器 (Spotify Playlist Auto Sorter)](#-spotify-歌单智能重排器-spotify-playlist-auto-sorter)
+- [🎵 Spotify 歌单智能排序 (Spotify Playlist Auto Sorter)](#-spotify-歌单智能排序-spotify-playlist-auto-sorter)
   - [📑 目录](#-目录)
   - [一、 痛点深度剖析：为什么你需要这款工具？](#一-痛点深度剖析为什么你需要这款工具)
   - [二、 项目简介与核心优势](#二-项目简介与核心优势)
@@ -35,8 +35,9 @@
   - [八、 劣势与技术局限性坦诚说明](#八-劣势与技术局限性坦诚说明)
     - [1. 为什么采用“复制到客户端新建歌单”，而不是“直接原地写回修改”？](#1-为什么采用复制到客户端新建歌单而不是直接原地写回修改)
     - [2. 必须借助 Spotify 桌面客户端完成粘贴](#2-必须借助-spotify-桌面客户端完成粘贴)
-    - [3. 操作系统快捷键差异](#3-操作系统快捷键差异)
-    - [4. 超大歌单读取性能](#4-超大歌单读取性能)
+    - [3. 部分客户端对 0 首歌单的粘贴激活机制](#3-部分客户端对-0-首歌单的粘贴激活机制)
+    - [4. 操作系统快捷键差异](#4-操作系统快捷键差异)
+    - [5. 超大歌单读取性能](#5-超大歌单读取性能)
   - [九、 技术架构与本地安全保障](#九-技术架构与本地安全保障)
   - [十、 开源协议 (MIT License)](#十-开源协议-mit-license)
 
@@ -77,7 +78,7 @@ Spotify 是全球最出色的流媒体音乐平台之一，但其**歌单管理�
 
 ## 三、 10 大专业排序规则全自由配置
 
-在弹窗的**「⚙️ 规则说明与高级筛选」**抽屉中，所有 10 项排序规则均开放自由点选配置，即选即生效：
+在弹窗的「⚙️ 规则说明与高级筛选」抽屉中，所有 10 项排序规则均开放自由点选配置，即选即生效：
 
 | 规则编号 | 规则名称 | 核心定义与作用 | 可选配置项 | 默认推荐 |
 | :---: | :--- | :--- | :--- | :--- |
