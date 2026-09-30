@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "Spotify 歌单智能重排器 (Spotify Playlist Auto Sorter)",
+  "version": "1.0.0",
+  "author": "csxo (https://github.com/csxo/spotify-playlist-sorter)",
+  "homepage_url": "https://github.com/csxo/spotify-playlist-sorter",
+  "description": "自动将 Spotify 歌单按歌手聚合、歌曲数量降序、A-Z/年份排序、单曲歌手置底、feat智能归属与重复歌曲清理，支持歌手可视化看板与一键复制生成新歌单。",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://api.spotify.com/*",
+    "https://open.spotify.com/*",
+    "https://developer.spotify.com/*",
+    "https://accounts.spotify.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Spotify 歌单智能重排器"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://open.spotify.com/*"
+      ],
+      "js": [
+        "bridge.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://open.spotify.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://developer.spotify.com/*"
+      ],
+      "js": [
+        "developer-bridge.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

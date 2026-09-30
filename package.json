@@ -1,0 +1,27 @@
+{
+  "name": "spotify-playlist-sorter",
+  "version": "1.0.0",
+  "description": "自动将 Spotify 歌单按歌手聚合、歌曲数量降序、A-Z/年份排序、单曲歌手置底、feat智能归属与重复歌曲清理，支持歌手可视化看板与一键复制生成新歌单。",
+  "author": "csxo (https://github.com/csxo/spotify-playlist-sorter)",
+  "homepage": "https://github.com/csxo/spotify-playlist-sorter",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/csxo/spotify-playlist-sorter.git"
+  },
+  "keywords": [
+    "spotify",
+    "playlist",
+    "sorter",
+    "music",
+    "chrome-extension",
+    "userscript",
+    "violentmonkey",
+    "tampermonkey"
+  ],
+  "scripts": {
+    "build": "node build.js",
+    "package": "node package-extension.js",
+    "test": "node --test"
+  }
+}
