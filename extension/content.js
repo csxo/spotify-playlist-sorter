@@ -3132,9 +3132,11 @@ class SpotifySorterUI {
         
         <div style="background:#222; border-radius:8px; padding:16px; text-align:left; font-size:13px; line-height:1.9; color:#eee; border:1px solid #2a2a2a; margin-bottom:20px;">
           <div style="font-weight:700; color:#1ed760; margin-bottom:6px;">📋 仅需最后 2 步，粘贴回 Spotify 客户端：</div>
-          <div>1. 打开 <strong>Spotify 桌面客户端</strong>，点击左侧边栏的 <strong>「＋ 新建歌单」</strong>（例如命名为 <code>智能排序歌单</code>）；</div>
-          <div>2. 点进新建的歌单页面，直接按键盘快捷键 <strong>Ctrl + V</strong> 粘贴！</div>
-          <div style="color:#888; font-size:12px; margin-top:6px;">💡 技巧：也可以直接在已有歌单按 <strong>Ctrl+A</strong> 全选、按 <strong>Delete</strong> 清空后按 <strong>Ctrl+V</strong> 粘贴覆盖！</div>
+          <div>1. 打开 <strong>Spotify 桌面客户端</strong>，点击左侧边栏的 <strong>「＋ 新建歌单」</strong>；</div>
+          <div>2. 点进新建的歌单页面，按键盘快捷键 <strong>Ctrl + V</strong>（Mac 上为 <strong>Cmd + V</strong>）粘贴！</div>
+          <div style="color:#f59e0b; font-size:12px; margin-top:8px; line-height:1.6; background:#292212; padding:8px 10px; border-radius:6px; border:1px solid #4a3818;">
+            ⚠️ <strong>关键提示</strong>：部分 Spotify 客户端版本要求歌单中<strong>至少先存在 1 首歌曲</strong>（歌曲列表激活后）才能响应快捷键粘贴。若空白歌单按 Ctrl+V 无反应，只需<strong>先随便添加 1 首歌曲</strong>再按 Ctrl+V 粘贴即可（或者直接在已有歌单按 Ctrl+A 全选 Delete 清空后粘贴覆盖）！
+          </div>
         </div>
 
         <button id="sp-close-clip-modal-btn" style="background:#1ed760; color:#000; font-weight:700; border:none; border-radius:500px; padding:10px 32px; font-size:14px; cursor:pointer;">
