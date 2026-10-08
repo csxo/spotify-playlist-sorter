@@ -23,6 +23,7 @@ const sorterCode = fs.readFileSync(path.join(SRC_DIR, 'sorter.js'), 'utf8');
 const tokenManagerCode = fs.readFileSync(path.join(SRC_DIR, 'token-manager.js'), 'utf8');
 const historyManagerCode = fs.readFileSync(path.join(SRC_DIR, 'history-manager.js'), 'utf8');
 const spotifyApiCode = fs.readFileSync(path.join(SRC_DIR, 'spotify-api.js'), 'utf8');
+const i18nCode = fs.readFileSync(path.join(SRC_DIR, 'i18n.js'), 'utf8');
 const uiCode = fs.readFileSync(path.join(SRC_DIR, 'ui.js'), 'utf8');
 
 // Filter out CommonJS requires and exports for browser bundling
@@ -76,10 +77,13 @@ const bundledBody = `
   // --- 5. Spotify API Module ---
   ${cleanForBundle(spotifyApiCode)}
 
-  // --- 6. UI Module ---
+  // --- 6. i18n Module ---
+  ${cleanForBundle(i18nCode)}
+
+  // --- 7. UI Module ---
   ${cleanForBundle(uiCode)}
 
-  // --- 7. Application Initialization ---
+  // --- 8. Application Initialization ---
   try {
     const app = new SpotifySorterUI({
       tokenManager: tokenManagerInstance,
@@ -97,10 +101,13 @@ const bundledBody = `
 
 // Userscript Header
 const userscriptHeader = `// ==UserScript==
-// @name         Spotify 歌单智能重排器 (Spotify Playlist Auto Sorter)
+// @name         Spotify Playlist Auto Sorter (Spotify 歌单智能重排器)
+// @name:en      Spotify Playlist Auto Sorter
+// @name:zh-CN   Spotify 歌单智能重排器
 // @namespace    https://github.com/csxo/spotify-playlist-sorter
-// @version      1.0.0
-// @description  自动将 Spotify 歌单按歌手聚合、歌曲数量降序、A-Z/年份排序、单曲歌手置底、feat智能归属与重复歌曲清理，支持歌手可视化看板与一键复制生成新歌单。
+// @version      1.1.0
+// @description  Automatically group Spotify tracks by artist, sort by track count descending, A-Z intra-artist sort, sink single-track artists, remove duplicates, and copy to new playlist.
+// @description:zh-CN 自动将 Spotify 歌单按歌手聚合、歌曲数量降序、A-Z/年份排序、单曲歌手置底、feat智能归属与重复歌曲清理，支持歌手可视化看板与一键复制生成新歌单。
 // @author       csxo (https://github.com/csxo/spotify-playlist-sorter)
 // @homepageURL  https://github.com/csxo/spotify-playlist-sorter
 // @supportURL   https://github.com/csxo/spotify-playlist-sorter/issues

@@ -15,17 +15,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (tab && tab.url && tab.url.includes('open.spotify.com')) {
     isSpotifyPlaylist = /open\.spotify\.com\/playlist\/([a-zA-Z0-9]+)/.test(tab.url);
     if (isSpotifyPlaylist) {
-      statusBox.innerHTML = '<span style="color: #1db954; font-weight:700;">● 已连接到 Spotify 歌单页面</span><br><span style="color:#aaa;">点击下方按钮直接开始排序。</span>';
+      statusBox.innerHTML = '<span style="color: #1db954; font-weight:700;">● Connected to Spotify Playlist</span><br><span style="color:#aaa;">Click button below to start sorting. / 点击下方按钮开始排序。</span>';
       actionBtn.style.display = 'flex';
-      actionBtn.innerText = '🚀 打开智能重排器';
+      actionBtn.innerText = '🚀 Open Playlist Sorter';
     } else {
-      statusBox.innerHTML = '<span style="color: #f59e0b; font-weight:700;">● 已打开 Spotify，但未进入歌单</span><br><span style="color:#aaa;">请在网页中点进您要排序的歌单页面。</span>';
-      actionBtn.innerText = '前往歌单页面后即可排序';
+      statusBox.innerHTML = '<span style="color: #f59e0b; font-weight:700;">● On Spotify, but not in a playlist</span><br><span style="color:#aaa;">Please open a playlist page. / 请在网页中进入歌单。</span>';
+      actionBtn.innerText = 'Open a playlist page to sort';
       actionBtn.disabled = true;
       actionBtn.style.opacity = '0.6';
     }
   } else {
-    statusBox.innerHTML = '<span style="color: #888888; font-weight:700;">● 未在 Spotify 页面</span><br><span style="color:#aaa;">请先点击下方按钮打开 Spotify 网页版。</span>';
+    statusBox.innerHTML = '<span style="color: #888888; font-weight:700;">● Not on Spotify</span><br><span style="color:#aaa;">Click button below to open Spotify Web Player.</span>';
     actionBtn.style.display = 'none';
   }
 
@@ -42,13 +42,13 @@ document.addEventListener('DOMContentLoaded', async () => {
           await chrome.scripting.executeScript({
             target: { tabId: tab.id },
             func: () => {
-              const btn = document.getElementById('sp-sorter-trigger-btn');
+              const btn = document.getElementById('sp-action-bar-sorter-btn') || document.getElementById('sp-sorter-trigger-btn');
               if (btn) btn.click();
             }
           });
           window.close();
         } catch (err) {
-          alert('未能连接到页面脚本，请刷新当前网页后再试！');
+          alert('Unable to connect to page script. Please refresh the page and try again! / 未能连接到页面脚本，请刷新重试！');
         }
       }
     }
